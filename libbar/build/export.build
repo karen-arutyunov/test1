@@ -3,5 +3,5 @@ $out_root/
   include libbar/
 }
 
-if ($import.target == lib{bar})
+if ($import.target == libs{bar})
   export $out_root/libbar/$import.target

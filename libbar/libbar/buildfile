@@ -2,7 +2,7 @@ int_libs = # Interface dependencies.
 imp_libs = # Implementation dependencies.
 import int_libs += libbaz%lib{baz}
 
-lib{bar}: {hxx ixx txx cxx}{** -version} hxx{version} $imp_libs $int_libs
+libs{bar}: {hxx ixx txx cxx}{** -version} hxx{version} $imp_libs $int_libs
 
 # Include the generated version header into the distribution (so that we don't
 # pick up an installed one) and don't remove it when cleaning in src (so that
@@ -18,18 +18,18 @@ hxx{version}: in{version} $src_root/manifest
 #
 cxx.poptions =+ "-I$out_root" "-I$src_root"
 
-obja{*}: cxx.poptions += -DLIBBAR_STATIC_BUILD
+#obja{*}: cxx.poptions += -DLIBBAR_STATIC_BUILD
 objs{*}: cxx.poptions += -DLIBBAR_SHARED_BUILD
 
 # Export options.
 #
-lib{bar}:
+libs{bar}:
 {
   cxx.export.poptions = "-I$out_root" "-I$src_root"
   cxx.export.libs = $int_libs
 }
 
-liba{bar}: cxx.export.poptions += -DLIBBAR_STATIC
+#liba{bar}: cxx.export.poptions += -DLIBBAR_STATIC
 libs{bar}: cxx.export.poptions += -DLIBBAR_SHARED
 
 # For pre-releases use the complete version to make sure they cannot be used
@@ -37,9 +37,9 @@ libs{bar}: cxx.export.poptions += -DLIBBAR_SHARED
 # for details on the version.* variable values.
 #
 if $version.pre_release
-  lib{bar}: bin.lib.version = @"-$version.project_id"
+  libs{bar}: bin.lib.version = @"-$version.project_id"
 else
-  lib{bar}: bin.lib.version = @"-$version.major.$version.minor"
+  libs{bar}: bin.lib.version = @"-$version.major.$version.minor"
 
 # Install into the libbar/ subdirectory of, say, /usr/include/
 # recreating subdirectories.

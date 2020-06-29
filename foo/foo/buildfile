@@ -1,4 +1,4 @@
-import libs += libbar%lib{bar}
+import libs += libbar%libs{bar}
 
 exe{foo}: {hxx ixx txx cxx}{**} $libs testscript
 
