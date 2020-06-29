@@ -1,0 +1,12 @@
+: 1
+name: libbar
+version: 0.1.0-a.0.z
+project: test1
+summary: bar C++ library
+license: proprietary
+description-file: README.md
+url: https://example.org/test1
+email: karen@codesynthesis.com
+depends: * build2 >= 0.12.0
+depends: * bpkg >= 0.12.0
+depends: libbaz == $

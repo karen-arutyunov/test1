@@ -1,0 +1,7 @@
+$out_root/
+{
+  include libbar/
+}
+
+if ($import.target == lib{bar})
+  export $out_root/libbar/$import.target

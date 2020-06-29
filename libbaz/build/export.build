@@ -1,0 +1,6 @@
+$out_root/
+{
+  include libbaz/
+}
+
+export $out_root/libbaz/$import.target

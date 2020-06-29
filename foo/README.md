@@ -1,0 +1,3 @@
+# foo
+
+C++ executable

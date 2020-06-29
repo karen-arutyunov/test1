@@ -1,0 +1,3 @@
+# libbar
+
+C++ library
